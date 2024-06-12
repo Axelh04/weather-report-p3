@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 import SearchForm from './SearchForm'
 import Forecast from './Forecast'
@@ -9,7 +9,7 @@ function App() {
 
 
   const fetchData = async () => {
-    const apiKey = process.env.REACT_APP_API_KEY
+    const apiKey = import.meta.env.VITE_APP_API_KEY
     const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`)
     const data = await response.json()
     setWeatherData(data)
